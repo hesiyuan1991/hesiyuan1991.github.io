@@ -6574,6 +6574,6 @@ nav.cube-menu ul.cube-menu-collapse li a:visited {
     }
 }
 
-.nav.cube-menu:before{
+nav.cube-menu:before{
     background-image: none;
 }
