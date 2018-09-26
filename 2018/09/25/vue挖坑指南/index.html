@@ -186,9 +186,25 @@
 <p><div align="center"><img src="/2018/09/25/vue挖坑指南/vue.png" alt="vue"></div></p>
 <hr>
 <h2 id="初识"><a href="#初识" class="headerlink" title="初识"></a><a href="#1">初识</a></h2><p>　　<a href="https://cn.vuejs.org/" target="_blank" rel="noopener">Vue.js</a>需要用node.js来配合食用，老实说搞的云里雾里的，各种报错让人想砸电脑。明明各位大佬的教程里，很优雅的敲下一行命令行就完事的事情，我却要鼓捣半天，反而报错报的怀疑人生。</p>
-<p>　　再了解了官网上的一些例子以后，为了更好的深入了解Vue的魅力，特意去从网上找了一个项目是webpack + <a href="https://cn.vuejs.org/" target="_blank" rel="noopener">Vue.js</a> + nodeJs 搭建的一个实战项目。 链接地址 ==&gt; <a href="https://segmentfault.com/a/1190000008602934" target="_blank" rel="noopener">Vue2+VueRouter2+webpack+vue-cil构建完整项目</a></p>
+<p>　　在理解了官网上的一些例子以后，为了更好的深入了解Vue的魅力，特意去从网上找了一个项目是webpack + <a href="https://cn.vuejs.org/" target="_blank" rel="noopener">Vue.js</a> + nodeJs 搭建的一个基础项目。 链接地址 ==&gt; <a href="https://segmentfault.com/a/1190000008602934" target="_blank" rel="noopener">Vue2+VueRouter2+webpack+vue-cil构建完整项目</a></p>
 <p>　　然后就是悲剧的开始，按照教程一步步走过来，期间有些小问题自己百度百度解决了，最后终于要成功跑起项目的时候，在webpack打包的时候就报错了Orz。然后研究发现是webpack版本更新了以后，vue-loader要在webpack.config.js里重新配置一下，老版本是不需要配置的。满心欢喜以为总算可以跑起来了，现实还是狠狠的给了我一记老拳。</p>
 <p><div align="center"><img src="/2018/09/25/vue挖坑指南/error-1.jpg" alt="错误"></div></p>
+<h2 id="弃坑"><a href="#弃坑" class="headerlink" title="弃坑"></a><a href="#2">弃坑</a></h2><p>　　<del>毫不犹豫就弃坑，再见Vue！！</del><br>　　当然是开玩笑的，但是发现一步步自己搭建Vue项目真的坑太多，所以决定用vue-cli这个脚手架来直接搭建，官网上说建议自己先一步步搭建，再用vue-cli来创建项目，但是坑实在太多让我不得不选择这种方式。</p>
+<pre><code>npm install --global vue-cli //全局安装vue-cli
+</code></pre><p>轻松愉快~~ 最后使用 <strong><em>vue -V</em></strong> 检查是否安装成功。</p>
+<p><div align="center"><img src="/2018/09/25/vue挖坑指南/1.jpg" alt="检查安装成功"></div></p>
+<p>创建一个vue项目，命令执行之后，会在当前目录生成一个以该名称命名的项目文件夹。</p>
+<pre><code>vue init webpack vueDemo  //vueDemo是项目名
+</code></pre><p>之后会跳出几个选项让你回答：</p>
+<p><div align="center"><img src="/2018/09/25/vue挖坑指南/2.jpg" alt="项目的一些基本信息和配置"></div></p>
+<p>具体的按照个人的需求来决定，而且后期也能修改。值得注意的是Project name 必须小写不然会报错。然后就是下载一些文件了，耐心等待即可。</p>
+<p><div align="center"><img src="/2018/09/25/vue挖坑指南/3.jpg" alt=""><br>激动人心的时刻到来了！！</div></p>
+<pre><code>cd vueDemo      //进入项目文件夹
+npm run dev     //启动项目
+</code></pre><p><div align="center"><img src="/2018/09/25/vue挖坑指南/4.jpg" alt=""><br>启动成功了！！！ヾ(≧O≦)〃嗷~</div></p>
+<p>最后打开浏览器，输入 <a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a> 就可以了！</p>
+<p><div align="center"><img src="/2018/09/25/vue挖坑指南/5.jpg" alt=""></div></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a><a href="#3">结语</a></h2><p>初次尝试花费了一定的功夫，但是不得不说用了脚手架以后十分方便，创建一个项目只要优雅的敲几个命令行就可以安心喝茶了，这也让我更加期待Vue的大显身手。</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
