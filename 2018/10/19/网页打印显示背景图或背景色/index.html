@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2018 | Sean&#39;s Blog</title>
+  <title>网页打印显示背景图或背景色 | Sean&#39;s Blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -167,87 +167,108 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>每一个不曾起舞的日子都是对生命的辜负。</p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/10/19/网页打印显示背景图或背景色/">网页打印显示背景图或背景色</a></h4>
-                            
-                            <p><time datetime="2018-10-19T05:47:18.000Z"><a href="/2018/10/19/网页打印显示背景图或背景色/">2018-10-19</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/09/25/vue挖坑指南/">vue挖坑指南（一）</a></h4>
-                            
-                            <p><time datetime="2018-09-25T06:53:41.000Z"><a href="/2018/09/25/vue挖坑指南/">2018-09-25</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/06/11/hello-world/">Hello World</a></h4>
-                            
-                            <p><time datetime="2018-06-11T05:51:04.091Z"><a href="/2018/06/11/hello-world/">2018-06-11</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-10-19T05:47:18.000Z" itemprop="datePublished">
+          2018-10-19
+      </time>
+    
+</span>
+                <h1>网页打印显示背景图或背景色</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<p>　　公司以前的项目要增加一个生成报表要加上水印的功能，并且能够要打印出来。很简单的小功能，用个一个插件就搞定了，很easy！</p>
+<p><div align="center"><img src="/2018/10/19/网页打印显示背景图或背景色/table.jpg" alt="生成的表单"></div></p>
+<p>　　水印很简单的搞出来了，但是在打印页面的时候却发现了问题，打印预览里没有我新增的水印。</p>
+<p><div align="center"><img src="/2018/10/19/网页打印显示背景图或背景色/2.jpg" alt="打印预览里没有水印"></div></p>
+<p>　　以为是浏览器打印设置没有勾选打印背景，打开设置一看，明明是选中状态。然后就是愉快的找原因时间，一开始以为是结构或者CSS的原因，没有显示的完整或者遮挡住了，但是一想不对，如果是这种原因那岂不是页面上也不看不到水印了，陷入了迷茫~~~。<br>　　然后就在愁眉不展的时候，在浏览器里随便调试，发现了这个项目里用了Bootstrap,然后把这个link标签删除了一试，竟然在打印预览里出现了水印！<br>马上就打开了bootstrap.css的源码，发现它里面有个坑爹样式：</p>
+<pre><code>@media print {
+    * {
+        color: #000 !important;
+        text-shadow: none !important;
+        background: transparent !important;
+        box-shadow: none !important
+    }
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>虽然还没想好写点什么，但是总觉得这里放句话比较和谐。</p>
+    a, a:visited {
+        text-decoration: underline
+    }
+
+    ...
+}
+</code></pre><p>　　Bootstrap里会在浏览器打印的时候，让背景会变成透明色，因为之前的水印是JS生成的一张base64的背景图片，所以变成透明色以后，就再也不会出现水印了，真的是一个坑，找到这个原因，花了不少原因(◐_◑)。<br>　　把这行代码注释了，就没问题了，别问我为啥还用bootstrap，以前的项目而且还不是我做的，木有办法啊。</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    
+    <a class="pull-right" href="/2018/09/25/vue挖坑指南/">
+        vue挖坑指南（一） →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
